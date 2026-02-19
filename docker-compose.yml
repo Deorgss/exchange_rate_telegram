@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  exchange-monitor:
+    build: .
+    container_name: uz_exchange_bot
+    volumes:
+      - ./data:/app/data
+      - ./config.php:/app/config.php
+    restart: unless-stopped
