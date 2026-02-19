@@ -12,7 +12,7 @@ A lightweight, native PHP script that monitors exchange rates from the Central B
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/yourusername/exchange_rate_telegram.git](https://github.com/yourusername/exchange_rate_telegram.git)
+   git clone [https://github.com/Deorgss/exchange_rate_telegram.git](https://github.com/Deorgss/exchange_rate_telegram.git)
 
 2. Set your credentials in config.php.
 
