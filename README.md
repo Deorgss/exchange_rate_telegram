@@ -14,8 +14,12 @@ A lightweight, native PHP script that monitors exchange rates from the Central B
 2. Copy the example config and fill in your credentials:
 ```cp config.php.example config.php```
 
-3. Set up a Cron Job to run the script every hour:
-```0 * * * * php /path/to/project/process.php```
+3. Run
+
+  **Direct:** Set up a Cron Job to run the script every hour:
+  ```0 * * * * php /path/to/project/process.php```
+
+  **Docker:** docker-compose up -d
 
 ## Requirements
 + PHP 7.4 or higher
