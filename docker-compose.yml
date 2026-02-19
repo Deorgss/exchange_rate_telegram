@@ -1,10 +1,23 @@
 version: '3.8'
 
 services:
-  exchange-monitor:
+  # Основной сервис
+  exchange-app:
     build: .
-    container_name: uz_exchange_bot
+    container_name: uz_exchange_app
     volumes:
       - ./data:/app/data
       - ./config.php:/app/config.php
-    restart: unless-stopped
+
+  # Сервис-планировщик (Cron)
+  cron:
+    image: mcuadros/ofelia:latest
+    container_name: uz_exchange_cron
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: daemon
+    labels:
+      # Настройка запуска: каждые 60 минут запускать скрипт в контейнере exchange-app
+      ofelia.job-exec.exchange_rate_update.schedule: "@every 60m"
+      ofelia.job-exec.exchange_rate_update.container: "uz_exchange_app"
+      ofelia.job-exec.exchange_rate_update.command: "php /app/process.php"
