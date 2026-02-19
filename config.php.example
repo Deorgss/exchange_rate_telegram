@@ -1,10 +1,11 @@
 <?php
 return [
-    'telegram_token' => 'YOUR_BOT_TOKEN',
-    'chat_id'        => 'YOUR_CHAT_ID',
+    'telegram_token' => 'YOUR_BOT_TOKEN_HERE',
+    'chat_id'        => 'YOUR_CHAT_ID_HERE',
     'history_days'   => 7,
     'thresholds'     => [
-        'USD' => ['min' => 12400, 'max' => 12800, 'percent_change' => 0.5]
+        'USD' => ['min' => 12400, 'max' => 12800, 'percent_change' => 0.5],
+        'EUR' => ['min' => 13500, 'max' => 14500, 'percent_change' => 0.7],
     ],
     'data_file'      => __DIR__ . '/data/history.json'
 ];
