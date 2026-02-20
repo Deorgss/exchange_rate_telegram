@@ -5,6 +5,7 @@ services:
   exchange-app:
     build: .
     container_name: uz_exchange_app
+    command: tail -f /dev/null
     volumes:
       - ./data:/app/data
       - ./config.php:/app/config.php
@@ -15,9 +16,5 @@ services:
     container_name: uz_exchange_cron
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./ofelia.conf:/etc/ofelia.conf:ro
     command: daemon
-    labels:
-      # Настройка запуска: каждые 60 минут запускать скрипт в контейнере exchange-app
-      ofelia.job-exec.exchange_rate_update.schedule: "@every 60m"
-      ofelia.job-exec.exchange_rate_update.container: "uz_exchange_app"
-      ofelia.job-exec.exchange_rate_update.command: "php /app/process.php"

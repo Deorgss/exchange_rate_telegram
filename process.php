@@ -7,4 +7,8 @@ $monitor->process();
 
 echo "Success: Rates processed at " . date('Y-m-d H:i:s') . "\n";
 
+if(is_string($error = $monitor->error())) {
+    echo "Error: {$error}\n";
+}
+
 ?>
