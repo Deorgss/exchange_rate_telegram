@@ -33,7 +33,7 @@ class ExchangeMonitor {
                 // 1. Проверяем триггеры
                 $data = $this->checkTriggers($ccy, $currentPrice, $history[$ccy] ?? []);
 
-                if(is_array($data)) {
+                if(is_array($data) && count($data) > 0) {
                     $report[] = implode("\n", $data);
                 }
                 // 2. Обновляем историю
